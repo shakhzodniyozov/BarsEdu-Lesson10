@@ -7,9 +7,9 @@ public class LocalFileLogger<T> : ILogger
 
     private readonly string path;
 
-    public void LogError(string message)
+    public void LogError(string message, Exception ex)
     {
-        WriteToFile($"[Error]: [{typeof(T).Name}] : {message}");
+        WriteToFile($"[Error]: [{typeof(T).Name}] : {message}. {ex.Message}");
     }
 
     public void LogInfo(string message)
